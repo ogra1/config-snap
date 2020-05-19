@@ -1,7 +1,6 @@
 #! /bin/sh
 
 if ! id -u ubuntu 2>/dev/null; then
-  groupadd --extrausers ubuntu >/dev/null 2>&1
-  useradd --extrausers -k /etc/skel -g ubuntu -m ubuntu
+  useradd --extrausers -d /tmp -U -m ubuntu && \
   echo 'ubuntu:ubuntu' | chpasswd
 fi
