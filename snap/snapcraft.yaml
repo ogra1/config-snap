@@ -13,7 +13,7 @@ grade: stable
 confinement: strict
 
 parts:
-  netplan.yaml:
+  netplanyaml:
     source: .
     plugin: nil
     override-build: |
