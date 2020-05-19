@@ -3,4 +3,6 @@
 if [ -e /etc/netplan/00-snapd-config.yaml ]; then
   cp $SNAP/netplan.yaml /etc/netplan/00-default-config.yaml
   rm /etc/netplan/00-snapd-config.yaml
+  dbus-send --system --type=method_call --print-reply \
+	  --dest=io.netplan.Netplan /io/netplan/Netplan io.netplan.Netplan.Apply
 fi
