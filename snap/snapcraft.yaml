@@ -7,7 +7,7 @@ description: |
   in place on a freshly booted Ubuntu core image.
 
   You need to connect the network-setup-control and account-control interfaces
-  from your gadget.yaml to make this work.
+  from a gadget.yaml config line to make this work.
 
 grade: stable
 confinement: strict
