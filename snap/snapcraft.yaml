@@ -1,0 +1,20 @@
+name: config-snap
+base: core18
+version: '0.1'
+summary: Configure some defaults on Ubuntu Core images
+description: |
+  This little helper snap creates an ubuntu user and copies a netplan.yaml
+  in place on a freshly booted Ubuntu core image.
+
+  You need to connect the network-setup-control and account-control interfaces
+  from your gadget.yaml to make this work.
+
+grade: stable
+confinement: strict
+
+parts:
+  netplan.yaml:
+    source: .
+    plugin: nil
+    override-build: |
+      cp netplan.yaml $SNAPCRAFT_PART_INSTALL/

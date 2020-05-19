@@ -1,0 +1,6 @@
+#! /bin/sh
+
+if [ -e /etc/netplan/00-snapd-config.yaml ]; then
+  cp $SNAP/netplan.yaml /etc/netplan/00-default-config.yaml
+  rm /etc/netplan/00-snapd-config.yaml
+fi

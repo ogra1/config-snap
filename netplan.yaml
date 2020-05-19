@@ -1,0 +1,6 @@
+network:
+  ethernets:
+    eth0:
+      addresses: []
+      dhcp4: true
+  version: 2
