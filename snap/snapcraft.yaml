@@ -18,7 +18,7 @@ plugs:
 
 parts:
   netplanyaml:
-    source: .
+    source: default-netplan-config
     plugin: nil
     override-build: |
       cp netplan.yaml $SNAPCRAFT_PART_INSTALL/
