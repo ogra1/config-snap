@@ -1,0 +1,14 @@
+#!/bin/sh
+NETPLAN_CONFIG="${SNAP_DATA}/netplan.yaml"
+
+config=`cat $NETPLAN_CONFIG` 
+
+# # set default values if they have not been set by the install hook yet
+[ -n "$(snapctl get config)" ] || snapctl set config="$echo $config"
+
+echo "$(snapctl get config)" > $NETPLAN_CONFIG
+
+cp $NETPLAN_CONFIG /etc/netplan/00-default-config.yaml
+dbus-send --system --type=method_call --print-reply \
+	--dest=io.netplan.Netplan /io/netplan/Netplan io.netplan.Netplan.Apply
+
